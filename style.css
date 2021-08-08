@@ -1,0 +1,512 @@
+/* Theme Name: sample-page
+Theme URI: localhost/wordpress/
+Description:myportfolio
+AuthorURI: localhost/wordpress/
+Version: 1.0.0 */
+
+html,body,ul,li,p{
+    font-family: YakuHanJP,Yu Gothic,YuGothic,YuGothic M,
+                "ヒラギノ角ゴ Pro W3",Hiragino Kaku Gothic Pro,"メイリオ",Meiryo,Osaka,
+                "ＭＳ Ｐゴシック",MS PGothic,sans-serif;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+a {
+    color: #fff;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .7s, transform .7s;
+}
+
+section.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* animation-title */
+.animetion-outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    animation-duration: 3s;
+}
+
+.square {
+    opacity: .4;
+    position: absolute;
+    left: 50%;
+    background: #0af;
+    width: 500px;
+    height: 500px;
+    margin-left: -250px;
+    margin-top: -250px;
+    transform-origin: 50% 48%;
+    animation: drift 30000ms infinite linear;
+}
+
+.square.-three {
+    animation: drift 50000ms infinite linear;
+}
+
+.square.-two {
+    animation: drift 70000ms infinite linear;
+    opacity: .1;
+    background: yellow;
+}
+
+.name-inner {
+    position: absolute;
+    width: 100%;
+    color: #fff;
+    line-height: 300px;
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    letter-spacing: .4em;
+    text-indent: .3em;
+}
+
+
+@keyframes drift {
+    from { transform: rotate(0deg); }
+    from { transform: rotate(360deg); }
+}
+
+@keyframes my-fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
+/* !animation-title */
+/* navigation */
+
+
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+
+
+.sp-menu {
+    margin-left:auto;
+}
+
+.sp-menu #open {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.sp-menu #open .hide {
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(73, 203, 255, 0.95);
+    text-align: center;
+    padding: 64px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+
+.overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 3;
+}
+
+.overlay #close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.overlay ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.overlay li {
+    margin-top: 32px;
+}
+
+.overlay li a{
+    text-decoration: none;
+}
+
+
+.pc-menu {
+    display: none;
+}
+
+.catch .github-img {
+    text-align: center;
+}
+
+
+@media (min-width:600px) {
+
+    .pc-menu {
+        display: block;
+        margin-left: auto;
+    }
+
+    .sp-menu {
+        display: none;
+    }
+
+    .pc-menu #gnav {
+        text-align: right;
+        margin: 20px;
+    }
+    
+    
+    #gnav ul li{
+        display: inline-block;
+        padding: 10px;
+    }
+    
+    #gnav a{
+        color: #000;
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+    }
+    
+    #gnav a:before {
+        content: "●";
+        position: absolute;
+        bottom: -3px;
+        width: 100%;
+        height: 1px;
+        background: #000;
+        transform: scale(0, 1);
+        transition: 0.4s;
+    }
+    #gnav a:hover:before {
+        transform: scale(1);
+    } 
+
+}    
+
+
+/* !navigation */
+
+/* home */
+
+.catch,
+.request {
+    text-align: center;
+    padding-left: 10px;
+}
+
+.catch .service-list img {
+    width: 150px;
+    height: auto;
+}
+
+.github-img img{
+    width: 30px;
+    height: 30px;
+}
+
+
+
+@media (max-width:599px){
+    .request,
+    .catch {
+        text-align: left;
+        padding: 0px 10px 0px 10px;
+    }
+}
+
+
+.service-list {
+    padding-bottom: 40px;
+}
+/* !home */
+
+
+/* about me */
+
+
+.profile-container,
+.skil-container > h2{
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+
+.article-container {
+    height: 400px;
+    padding: 10px;
+    word-wrap: break-word;
+    text-align: left;
+    display: inline-block;
+}
+
+.article-container ul{
+    list-style: none;
+}
+
+.article-container li p{
+    font-size: 15px;
+    
+}
+.skil-container {
+    text-align: center;
+}
+
+.img-container,
+.skil-container {
+    display: inline-block;
+    margin: 10px;
+}
+
+
+#my-photo {
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+}
+
+.skil-img ul li{
+    display: inline;
+    list-style: none;
+    text-align: center;
+    padding: 10px;
+}
+
+.skil-img ul li img{
+    width: 22%;
+    height: 22%;
+}
+
+@media screen and (max-width:767px) {
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .profile-container, .skil-container > h2 {
+        text-align: left;
+    }
+
+    .img-container {
+        height: 10px;
+    }
+
+    .profile-container h1 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+
+    .profile-container h2 {
+        margin: 0px 10px ;
+    }
+
+}
+
+@media screen and (min-width:768px){
+    .skil-parent {
+        text-align: center;
+    }
+
+    .skil-img ul li img{
+        width: 150px;
+        height: auto;
+    }
+
+    .img-container {
+        vertical-align: bottom;
+    }
+
+    #works-photo {
+      width: 550px;
+      height: auto;
+    }
+
+    .img-container {
+      height: 400px;
+  }
+}
+
+
+
+/* !about me */
+/* works */
+
+#works-photo {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width:768px){
+  #works-photo {
+    width: 550px;
+    height: auto;
+  }
+
+  .itemlist {
+    text-align: left;
+    padding-left: 50px;
+  }
+  
+}
+
+
+
+
+/* footer */
+
+.copyright {
+    text-align: center;
+    color: rgb(124, 123, 123);
+}
+
+.footer-container #gnav {
+    text-align: light;
+    margin: 20px;
+}
+
+
+.footer-container #gnav ul li{
+    display: inline-block;
+    padding: 10px;
+}
+
+.footer-container #gnav a{
+    color: #000;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+}
+
+
+/* contact */
+.request {
+    margin-top:70px;
+}
+
+.contact-wp {
+    text-align: center;
+}
+
+.form-container {
+    text-align: center;
+}
+
+.cp_iptxt {
+
+	margin: 40px 3%;
+    text-align: center;
+}
+.cp_iptxt input[type='text'],
+.cp_iptxt input[type='email'],
+.cp_iptxt textarea{
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	padding-left: 40px;
+	letter-spacing: 1px;
+	border: 0;
+}
+
+.cp_iptxt input[type='text']:focus,
+.cp_iptxt input[type='email']:focus,
+.cp_iptxt textarea:focus{
+	outline: none;
+}
+
+.cp_iptxt input[type='text']:focus::after,
+.cp_iptxt input[type='email']:focus::after,
+.cp_iptxt textarea:focus::after{
+	outline: none;
+}
+.cp_iptxt i {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 9px 5px;
+	transition: 0.3s;
+	color: #aaaaaa;
+}
+.cp_iptxt::after {
+	display: block;
+	width: 100%;
+	height: 4px;
+	margin-top: -1px;
+	content: '';
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	border-color: #000;
+}
+
+form p input {
+    font-size     : 15px;
+    text-align    : center;
+    cursor        : pointer;
+    padding       : 12px 12px;
+    background    : #000000;
+    color         : #ffffff;
+    line-height   : 1em;
+    transition    : .3s;
+    box-shadow    : 2px 2px 1px #666666;
+    border        : 1px solid #000000;
+    margin-top: 10px;
+}
+
+form p input:hover{
+    box-shadow    : none;
+    color         : #000000;
+    background    : #ffffff;
+}
+
+.screen-reader-response,
+.wpcf7-not-valid-tip ,
+.wpcf7-response-output {
+    color: red;
+}
+
